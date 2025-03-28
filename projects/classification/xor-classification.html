@@ -1,0 +1,182 @@
+---
+title: XOR Classification
+category: classification
+description: A simple feed-forward neural network with quadratic activation to classify the XOR problem.
+layout: default
+permalink: /projects/classification/xor-classification/
+---
+
+<h1>Mathematics Behind XOR Gate Classification</h1>
+
+<p>
+  The XOR (exclusive OR) function returns 1 if and only if the inputs differ. This Boolean function is a classic example used in machine learning to illustrate non-linear separability:
+</p>
+<ul>
+  <li>XOR(0, 0) = 0</li>
+  <li>XOR(0, 1) = 1</li>
+  <li>XOR(1, 0) = 1</li>
+  <li>XOR(1, 1) = 0</li>
+</ul>
+
+<p>
+  A linear classifier cannot separate the outputs of this dataset correctly, as no straight line can divide the positive and negative classes. Therefore, we turn to a neural network architecture that incorporates non-linear transformation within a hidden layer.
+</p>
+
+<h2>XOR Gate in 3D</h2>
+<p><em>Plot of XOR inputs and outputs in 3D</em></p>
+<img src="/assets/images/xor-classification/xor_points_3d.png" alt="XOR points in 3D" style="max-width:100%;" />
+
+<h2>Architecture Diagram</h2>
+<p><em>Visual diagram of the XOR classification network architecture.</em></p>
+<img src="/assets/images/xor-classification/xor_architecture.png" alt="XOR network architecture" style="max-width:100%;" />
+
+<h2>Network Design</h2>
+<p>
+  We construct a shallow feed-forward neural network with a single hidden transformation that captures non-linear relationships. The model structure is as follows:
+</p>
+<ul>
+  <li><strong>Input layer sum:</strong> \( s = w_1 x_1 + w_2 x_2 + b \), where \( w_1, w_2 \) are input layer weights and \( b \) is the input layer bias.</li>
+  <li><strong>Hidden transformation:</strong> \( t = s(sv_0 + v_1) \), where \( v_i = (v_0, v_1) \) are hidden layer weights and \( s \) is the input layer sum.</li>
+  <li><strong>Output layer:</strong> \( o = \sigma(t) = \frac{1}{1 + e^{-t}} \), where \( t \) is the hidden transformation.</li>
+  <li><strong>Loss:</strong> Cross-entropy \( L = -[y \log(o) + (1 - y) \log(1 - o)] \), where \( y \) is the true result and \( o \) is the predicted output.</li>
+</ul>
+
+<h2>Gradient Descent and Manual Derivatives</h2>
+<p>
+  All gradients were derived manually rather than using automatic differentiation libraries. This helps reinforce understanding of the chain rule in multivariable calculus and how it applies to learning in neural networks.
+</p>
+<p>
+\[
+\frac{\partial L}{\partial w_i} = \frac{\partial L}{\partial o} \cdot \frac{\partial o}{\partial t} \cdot \frac{\partial t}{\partial s} \cdot \frac{\partial s}{\partial w_i}
+\]
+</p>
+<p>
+  \[
+  \frac{\partial L}{\partial b} = \frac{\partial L}{\partial o} \cdot \frac{\partial o}{\partial t} \cdot \frac{\partial t}{\partial s} \cdot \frac{\partial s}{\partial b}
+  \]
+</p>
+<p>
+\[
+\frac{\partial L}{\partial v_i} = \frac{\partial L}{\partial o} \cdot \frac{\partial o}{\partial t} \cdot \frac{\partial t}{\partial v_i}
+\]
+</p>
+
+<h2>Key Components Explained</h2>
+
+<h3>1. Weight Initialisation</h3>
+<p>
+  We initialise weights using Xavier initialisation. This heuristic scales the weight range based on the number of input and output nodes, helping prevent gradients from vanishing or exploding during training:
+</p>
+<p>
+\[
+\text{range} = \sqrt{\frac{6}{n_{in} + n_{out}}}
+\]
+</p>
+
+<h3>2. Input Layer Sum</h3>
+<p>
+  The weighted sum of inputs is computed as:
+\[
+s = w_1 x_1 + w_2 x_2 + b
+\]
+  Its partial derivatives are:
+</p>
+<ul>
+  <li>\( \frac{\partial s}{\partial w_1} = x_1 \)</li>
+  <li>\( \frac{\partial s}{\partial w_2} = x_2 \)</li>
+  <li>\( \frac{\partial s}{\partial b} = 1 \)</li>
+</ul>
+
+<h3>3. Hidden Layer Transformation</h3>
+<p>
+  We apply a quadratic non-linearity:
+\[
+t = s(sv_0 + v_1)
+\]
+</p>
+<ul>
+  <li>\( \frac{\partial t}{\partial s} = 2sv_0 + v_1 \)</li>
+  <li>\( \frac{\partial t}{\partial v_0} = s^2 \)</li>
+  <li>\( \frac{\partial t}{\partial v_1} = s \)</li>
+</ul>
+<p>
+  This step is critical for introducing non-linearity into the model. Without this transformation, the XOR function could not be approximated.
+</p>
+
+<h3>4. Output Activation</h3>
+<p>
+  We use the sigmoid function to compress the output to the interval (0, 1):
+\[
+\sigma(t) = \frac{1}{1 + e^{-t}}
+\]
+</p>
+<p>
+  To derive the gradient, consider using the substitution \( u = e^{-t} \):
+\[
+\frac{d\sigma}{dt} = \frac{d}{dt}  \left(\frac{1}{1 + e^{-t}}\right) = \frac{e^{-t}}{(1 + e^{-t})^2}
+\]
+</p>
+<p>
+  Recognising that \( \sigma(t) = \frac{1}{1 + e^{-t}} \), we can rewrite the derivative as:
+\[
+\frac{d\sigma}{dt} = \sigma(t)(1 - \sigma(t))
+\]
+</p>
+<p>
+  This elegant expression simplifies the evaluation of the derivative in backpropagation.
+</p>
+
+<h3>5. Loss Function</h3>
+<p>
+  We use binary cross-entropy loss to penalise misclassifications:
+\[
+L = -y \log(o) - (1 - y) \log(1 - o)
+\]
+</p>
+<p>
+  Its derivative with respect to the output is:
+\[
+\frac{\partial L}{\partial o} = -\frac{y}{o} + \frac{1 - y}{1 - o}
+\]
+</p>
+<p>
+  This is then backpropagated using the chain rule to update each parameter.
+</p>
+
+<h2>Training</h2>
+<p>
+  The training loop iterates \( N \) times using stochastic gradient descent. After each pass through the data, the weights are updated:
+</p>
+<p>
+\[
+\theta \leftarrow \theta - \eta \cdot \nabla_\theta L
+\]
+</p>
+<p>
+  Where \( \eta \) is the learning rate.
+</p>
+<p>
+  Weight values are recorded throughout to visualise convergence. The model is then evaluated not only on the original XOR inputs but also on slightly perturbed inputs to test its generalisation ability.
+</p>
+
+<h2>Visualisation</h2>
+
+<h3>Final XOR Output Surface</h3>
+<p><em>Trained network's output over the input domain.</em></p>
+<img src="/assets/images/xor-classification/xor_surface.png" alt="XOR surface" style="max-width:100%;" />
+
+<h3>Accuracy</h3>
+<p>
+  Final training accuracy approaches 100% on both original and perturbed inputs. This indicates that the network not only learned the XOR function, but also used a smooth generalisation.
+</p>
+
+<h3>Weight Updates Over Time</h3>
+<p><em>Evolution of each parameter across training iterations.</em></p>
+<img src="/assets/images/xor-classification/weight_updates.png" alt="Weight updates" style="max-width:100%;" />
+
+<h2>Source Code</h2>
+<p>
+  Full implementation and training script available on <a href="https://github.com/samiosborn/Maths/blob/master/Multi-Layer-Perceptron/MLP-XOR-from-Scratch.py" target="_blank">GitHub</a>.
+</p>
+
+<p>— March 2025</p>

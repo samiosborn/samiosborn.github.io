@@ -4,15 +4,28 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+## Links
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+LinkedIn: 
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+GitHub: 
 
+## Career
 
-[jekyll-organization]: https://github.com/jekyll
+I'm currently a Senior Investment Associate at Bootstrap Europe, where I invest in startups across deep-tech (biotech, robotics, and AI). My work includes financial forecasting, portfolio simulation, returns analysis, founder networking, and presenting investment recomendations.
+
+Prior to this, I worked as an Investment Banking Analyst at Barclays advising companies in climate technology. During this time, I built deep expertise in valuation, financial modelling, and competitive landscape analysis.
+
+## Education
+
+I studied **Mathematics (BSc)** and **Finance (MSc)** at Imperial College London, graduating in 2019 and 2020 respectively. 
+
+## Projects
+
+Outside of investing, I'm passionate about robotics, machine learning, and learning through building projects. 
+
+## Personal
+
+Currently I live in London, and enjoy sports including cycling and powerlifting. 
+
+Feel free to reach out if you're working on something cool in AI, robotics, or just want to talk tech, maths, or investing. 

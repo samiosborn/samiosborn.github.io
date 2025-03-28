@@ -1,0 +1,22 @@
+---
+layout: default
+title: Projects
+permalink: /projects/
+---
+
+<h1>Projects</h1>
+
+{% assign sorted = site.projects | group_by: "category" %}
+{% for category in sorted %}
+  <h2>{{ category.name | capitalize }}</h2>
+  <ul>
+    {% for item in category.items %}
+      <li>
+        <a href="{{ item.url }}">{{ item.title }}</a><br />
+        {% if item.description %}
+          <small>{{ item.description }}</small>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endfor %}
