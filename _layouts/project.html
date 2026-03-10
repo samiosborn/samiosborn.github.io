@@ -1,0 +1,87 @@
+---
+layout: default
+---
+{% assign project_key = page.project %}
+{% assign project_pages = site.pages | where: "project", project_key %}
+{% assign overview_page = project_pages | where: "kind", "project" | first %}
+{% assign technical_notes = project_pages | where: "kind", "note" | sort: "date" | reverse %}
+{% assign build_logs = project_pages | where: "kind", "build-log" | sort: "date" | reverse %}
+{% assign demos = project_pages | where: "kind", "demo" | sort: "date" | reverse %}
+{% assign sidebar_links = page.project_links | default: overview_page.project_links %}
+
+<div class="project-layout">
+  <article class="project-main">
+    <header class="page-header">
+      <h1>{{ page.title }}</h1>
+      {% if page.lead %}
+        <p class="page-lead">{{ page.lead }}</p>
+      {% endif %}
+      <div class="meta-row">
+        {% if page.project_title %}
+          <span class="meta-chip">{{ page.project_title }}</span>
+        {% endif %}
+        {% if page.kind and page.kind != 'project' %}
+          <span class="meta-chip">{{ page.kind | replace: '-', ' ' | capitalize }}</span>
+        {% endif %}
+        {% if page.date %}
+          <span class="meta-chip">{{ page.date | date: "%d %b %Y" }}</span>
+        {% endif %}
+      </div>
+    </header>
+
+    <div class="page-content">
+      {{ content }}
+    </div>
+  </article>
+
+  <aside class="project-sidebar" aria-label="Project navigation">
+    <div class="project-sidebar__group">
+      <h2>Overview</h2>
+      {% if overview_page %}
+        <a class="sidebar-link{% if page.url == overview_page.url %} is-active{% endif %}" href="{{ overview_page.url | relative_url }}">{{ overview_page.title }}</a>
+      {% endif %}
+    </div>
+
+    <div class="project-sidebar__group">
+      <h2>Technical Notes</h2>
+      {% if technical_notes.size > 0 %}
+        {% for item in technical_notes %}
+          <a class="sidebar-link{% if page.url == item.url %} is-active{% endif %}" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+        {% endfor %}
+      {% else %}
+        <p class="sidebar-empty">No technical notes yet.</p>
+      {% endif %}
+    </div>
+
+    <div class="project-sidebar__group">
+      <h2>Build Logs</h2>
+      {% if build_logs.size > 0 %}
+        {% for item in build_logs %}
+          <a class="sidebar-link{% if page.url == item.url %} is-active{% endif %}" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+        {% endfor %}
+      {% else %}
+        <p class="sidebar-empty">No build logs yet.</p>
+      {% endif %}
+    </div>
+
+    <div class="project-sidebar__group">
+      <h2>Demos</h2>
+      {% if demos.size > 0 %}
+        {% for item in demos %}
+          <a class="sidebar-link{% if page.url == item.url %} is-active{% endif %}" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+        {% endfor %}
+      {% else %}
+        <p class="sidebar-empty">No demos yet.</p>
+      {% endif %}
+    </div>
+
+    {% if sidebar_links and sidebar_links.size > 0 %}
+      <div class="project-sidebar__group">
+        <h2>External</h2>
+        {% for link in sidebar_links %}
+          <a class="sidebar-link" href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.label }}</a>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </aside>
+</div>

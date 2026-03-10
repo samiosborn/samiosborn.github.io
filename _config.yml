@@ -1,38 +1,11 @@
-# Site settings
 title: Sami Osborn
-description: >-
-  Machine learning and robotics articles and builds. 
+description: Mathematical systems builder working across robotics, perception, control, and learning.
 baseurl: ""
 url: ""
 github_username: samiosborn
-
-# Build settings
+timezone: Europe/London
 theme: minima
+permalink: pretty
+
 plugins:
   - jekyll-feed
-
-# Collections
-collections:
-  projects:
-    output: true
-    permalink: /projects/:category/:name/
-
-defaults:
-  - scope:
-      path: ""
-      type: projects
-    values:
-      layout: project
-
-# Exclude from processing
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/

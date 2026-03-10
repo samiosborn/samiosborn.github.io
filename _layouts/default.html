@@ -1,28 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-GB">
   <head>
     <meta charset="UTF-8">
-    <title>{{ page.title }} | {{ site.title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
     {% seo %}
-  </head>  
+  </head>
   <body>
-    <header>
-      <h1>{{ site.title }}</h1>
-      <p>{{ site.description }}</p>
-      <!-- Might add a navigation menu here -->
+    <header class="site-header">
+      <div class="container">
+        <div class="site-header__inner">
+          <a class="site-brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+          {% include nav.html %}
+        </div>
+      </div>
     </header>
-    <main>
-      {{ content }}
+
+    <main class="site-main">
+      <div class="container">
+        {{ content }}
+      </div>
     </main>
-    <footer>
-      <p>&copy; {{ site.time | date: '%Y' }} Sami Osborn</p>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}</p>
+      </div>
     </footer>
 
-    <!--MathJax script to render LaTeX -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async
-      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   </body>
 </html>
