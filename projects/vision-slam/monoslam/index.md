@@ -7,11 +7,11 @@ category: vision-slam
 kind: project
 order: 1
 date: 2026-03-18
-summary: Monocular SLAM implementation focused on a rigorous geometric front-end and reliable bootstrap.
+summary: Monocular SLAM implementation.
 permalink: /projects/vision-slam/monoslam/
 project_links:
   - label: GitHub Repository
-    url: https://github.com/samiosborn
+    url: https://github.com/samiosborn/Robotics/tree/main/MonoSLAM
   - label: ETH3D Dataset
     url: https://www.eth3d.net/
 ---

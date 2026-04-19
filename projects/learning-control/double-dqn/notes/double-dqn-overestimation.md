@@ -5,7 +5,7 @@ project: double-dqn
 project_title: Double DQN
 category: learning-control
 kind: note
-date: 2026-03-01
+date: 2025-05-17
 order: 1
 summary: Why decoupling action selection and evaluation reduces positive bias in Q estimates.
 permalink: /projects/learning-control/double-dqn/notes/double-dqn-overestimation/

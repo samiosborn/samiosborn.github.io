@@ -6,12 +6,12 @@ project_title: Double DQN
 category: learning-control
 kind: project
 order: 1
-date: 2026-03-02
+date: 2025-05-17
 summary: Reinforcement learning project focused on overestimation bias and stable value learning.
 permalink: /projects/learning-control/double-dqn/
 project_links:
   - label: Code Repository
-    url: https://github.com/samiosborn
+    url: https://github.com/samiosborn/Reinforcement-Learning/tree/main/CartPole
 ---
 ## What this project is
 A Double DQN implementation and evaluation pipeline for analysing value overestimation and training stability.

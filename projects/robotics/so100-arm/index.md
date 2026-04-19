@@ -6,12 +6,12 @@ project_title: SO100 Arm
 category: robotics
 kind: project
 order: 2
-date: 2026-03-04
+date: 2025-10-12
 summary: Manipulation project exploring kinematics, calibration, and reliable arm control primitives.
 permalink: /projects/robotics/so100-arm/
 project_links:
   - label: Code Repository
-    url: https://github.com/samiosborn
+    url: https://github.com/samiosborn/Robotics/tree/main/Robot_Arm_SO100
 ---
 ## What this project is
 A practical manipulation stack built around the SO100 robotic arm platform.

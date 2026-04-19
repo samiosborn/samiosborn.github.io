@@ -5,7 +5,7 @@ project: so100-arm
 project_title: SO100 Arm
 category: robotics
 kind: note
-date: 2026-03-03
+date: 2025-10-12
 order: 1
 summary: Practical forward/inverse kinematics setup and calibration procedure for repeatable motion.
 permalink: /projects/robotics/so100-arm/notes/kinematics-and-calibration/

@@ -11,7 +11,7 @@ summary: A from-scratch quadratic MLP implementation for XOR classification, wit
 permalink: /projects/learning-control/xor-classification/
 project_links:
   - label: Source Code
-    url: https://github.com/samiosborn/Maths/blob/master/Multi-Layer-Perceptron/MLP-XOR-from-Scratch.py
+    url: https://github.com/samiosborn/Maths/tree/master/Multi-Layer-Perceptron
 ---
 ## What this project is
 A small but rigorous learning systems build: a neural network that classifies XOR using a quadratic hidden transformation and manual backpropagation.
