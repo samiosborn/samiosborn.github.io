@@ -3,12 +3,47 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    <title>{% if page.url == '/' %}{{ site.title }} | {{ site.tagline }}{% elsif page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
-    {% seo %}
+    {% if page.url == '/' %}<meta name="author" content="{{ site.author.name }}">{% endif %}
+    {% seo title=false %}
+    {% if page.url == '/' %}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": {{ site.author.name | jsonify }},
+        "url": {{ '/' | absolute_url | jsonify }},
+        "sameAs": {{ site.social.links | jsonify }},
+        "jobTitle": "PhD Researcher in AI and Robotics",
+        "affiliation": [
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Imperial College London"
+          },
+          {
+            "@type": "Organization",
+            "name": "Robot Learning Lab",
+            "parentOrganization": {
+              "@type": "CollegeOrUniversity",
+              "name": "Imperial College London"
+            }
+          }
+        ],
+        "knowsAbout": [
+          "Robot learning",
+          "Robotics",
+          "Artificial intelligence",
+          "Computer vision",
+          "Control systems",
+          "Embodied AI"
+        ]
+      }
+    </script>
+    {% endif %}
   </head>
   <body>
     <header class="site-header">

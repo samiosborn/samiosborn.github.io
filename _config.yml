@@ -1,11 +1,21 @@
-title: Sami Osborn
-description: Mathematical systems builder working across robotics, perception, control, and learning.
+title: "Sami Osborn"
+tagline: "AI and Robot Learning"
+description: "Sami Osborn is an AI and Robotics PhD researcher in the Robot Learning Lab at Imperial College London."
 baseurl: ""
 url: "https://samiosborn.github.io"
+author:
+  name: "Sami Osborn"
 github_username: samiosborn
+social:
+  name: "Sami Osborn"
+  links:
+    - https://www.linkedin.com/in/samiosborn/
+    - https://github.com/samiosborn
+    - https://bootstrap-europe.com/team-member/sami-osborn/
 timezone: Europe/London
 theme: minima
 permalink: pretty
 
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag

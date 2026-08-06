@@ -1,10 +1,13 @@
 ---
 layout: default
-title: Home
+title: 'Sami Osborn \| AI and Robot Learning'
+author: false
 permalink: /
 ---
 <section class="hero">
-  <h1>Robotics and AI</h1>
+  <h1>Sami Osborn</h1>
+  <p class="page-lead">AI and Robot Learning</p>
+  <p>I am doing a PhD in AI &amp; Robotics at Imperial College London, in the Robot Learning Lab, supervised by Professor Edward Johns. My research focuses on robot learning, control and embodied AI. Previously, I invested in deep-tech and robotics at Bootstrap Europe and worked in climate-technology investment banking at Barclays. I build robot-learning, computer-vision and control systems from first principles.</p>
   <div class="button-row">
     <a class="button button-primary" href="{{ '/projects/' | relative_url }}">Projects</a>
     <a class="button" href="{{ '/technical-notes/' | relative_url }}">Technical Notes</a>
@@ -33,7 +36,7 @@ permalink: /
     </article>
 
     <article class="card">
-      <h3><a href="{{ '/projects/robotics/self-balancing-robot/' | relative_url }}">Self-balancing Robot</a></h3>
+      <h3><a href="{{ '/projects/robotics/balancebot/' | relative_url }}">Self-balancing Robot</a></h3>
       <p>Inverted pendulum platform for estimation, linearisation, and closed-loop controller design.</p>
       <p class="card-meta">Robotics</p>
     </article>
@@ -72,7 +75,6 @@ permalink: /
 
 <section>
   <h2 class="section-title">About</h2>
-  <p>I am a mathematician, building systems at the intersection of robotics and AI. I focus on modelling assumptions, algorithmic choices, software efficiency, and measurable performance.</p>
-  <p>My current focus is on project-driven work where each build becomes a canonical technical record, from architecture decisions through to demos and reflections.</p>
+  <p>My current work combines mathematical modelling, robot learning and hands-on system building, with an emphasis on explicit assumptions, robust implementation and measurable behaviour.</p>
   <p><a href="{{ '/about/' | relative_url }}">Read more about my background and research interests.</a></p>
 </section>
