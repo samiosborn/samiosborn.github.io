@@ -4,11 +4,19 @@ title: About
 lead: PhD research, technical background, and research-engineering direction.
 permalink: /about/
 ---
-I am doing a PhD in AI & Robotics at Imperial College London, in the Robot Learning Lab, supervised by Professor Edward Johns. My research focuses on robot learning, control and embodied AI. My preferred mode of work is to start from first principles, formalise assumptions, and then carry the model through to implementation and measurable behaviour.
+# About
 
-I care about problems where estimation, decision-making, and control must operate together under real constraints. That includes visual localisation, feedback control for embodied systems, and learning pipelines that remain interpretable enough to debug and improve.
+I am an AI and robotics researcher at Imperial College London, working in the Robot Learning Lab, under the supervision of Professor Edward Johns. My research is funded through the EU's project GRAIL (Generative Robotics and AI for EU Industrial Leadership).
 
-Previously, I invested in deep-tech and robotics at Bootstrap Europe and worked in climate-technology investment banking at Barclays. My academic background is in Mathematics at Imperial College London, with further postgraduate study in Finance.
+My research centres on dexterous manipulation, in-context imitation learning, and generative modelling. I am interested in developing robots that can learn precise, contact-rich skills from a small number of demonstrations, and generalise them reliably to new objects and real-world situations. 
+
+Alongside my research, I build robotics and machine-learning systems from first principles. My projects have spanned reinforcement learning, visual SLAM, tactile sensing, and embedded control systems. I develop these implementations to understand the underlying algorithms, work through practical implementation challenges, and investigate failure modes.
+
+Before moving into robotics research, I worked in deep-technology investing at Bootstrap Europe, where I focused on robotics, semiconductors, photonics, and quantum computing. I previously worked in climate-technology investment banking at Barclays. This experience gave me a close view of how advanced technologies move from research prototypes into deployed systems.
+
+I studied Mathematics at Imperial College London, with a particular focus on pure mathematics. I graduated with First-Class Honours and was named on the Dean’s List. I later completed a master’s degree in Finance with Distinction, as a recipient of the Brilliant Minds Scholarship. 
+
+Outside my research, I enjoy cycling, gardening, and powerlifting.
 
 <div class="about-columns">
   <article class="card">
